@@ -16,9 +16,9 @@ public class MainFile {
             Server server = new Server(9080);
             ServletContextHandler contextHandler= new ServletContextHandler();
             TemplateEngine engine = new TemplateEngine("tpl");
-            String url = "jdbc:postgresql://localhost:5432/postgres";
-            String user = "postgres";
-            String password = "12345";
+            String url = "jdbc:postgresql://dpg-ctacd8pu0jms73ev0n3g-a/render-host:5432/roybha";
+            String user = "roybha_user";
+            String password = "6JbGz8Aksk5pIc0a6o4sPSpNi2VDq6bP";
             DatabaseStructure.migrate(url, user, password);
             MemoryService service = new MemoryService(url, user, password);
             contextHandler.addServlet(new ServletHolder(new RegistrationServlet(service,engine)), "/registration");
