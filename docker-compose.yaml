@@ -12,17 +12,6 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    depends_on:
-      - postgres
-    ports:
-      - "9080:9080"
-    environment:
-      - DB_URL=jdbc:postgresql://postgres:5432/postgres
-      - DB_USER=postgres
-      - DB_PASSWORD=12345
+
 volumes:
   postgres_data:
