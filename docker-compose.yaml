@@ -5,13 +5,16 @@ services:
     container_name: postgres_container
     restart: unless-stopped
     environment:
-      POSTGRES_USER: 'postgres'
-      POSTGRES_PASSWORD: '12345'
-      POSTGRES_DB: 'mydatabase'
+      POSTGRES_USER: 'postgres_l3ae_user'
+      POSTGRES_PASSWORD: 'THrDtou6OfK3kR7MDcfPh57BVtAUVCVc'
+      POSTGRES_DB: 'postgres_l3ae'
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 volumes:
   postgres_data:
+
