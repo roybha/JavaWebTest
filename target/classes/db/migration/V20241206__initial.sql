@@ -7,7 +7,6 @@ CREATE TABLE users (
     password TEXT CHECK (LENGTH(password) >= 8),
     login TEXT UNIQUE CHECK (LENGTH(login) >= 8)
 );
-alter table users owner to postgres;
 
 INSERT INTO users (id, name, age, file, gender, password, login) VALUES
     (2, 'Olena', 23, 'https://randomuser.me/api/portraits/women/31.jpg', 'woman', 'password5', 'Olena_2303'),
@@ -30,7 +29,6 @@ CREATE TABLE user_responses (
     FOREIGN KEY (responder_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (receiver_id) REFERENCES users(id) ON DELETE CASCADE
 );
-alter table user_responses owner to postgres;
 
 CREATE TABLE messages (
     id SERIAL PRIMARY KEY,
@@ -39,4 +37,3 @@ CREATE TABLE messages (
     text TEXT NOT NULL,
     sent_at TIMESTAMP DEFAULT NOW() NOT NULL
 );
-alter table messages owner to postgres;
